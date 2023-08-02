@@ -1,0 +1,36 @@
+.weather-display {
+    text-align: center;
+    padding: 1rem;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0, 0.1);
+}
+
+h2{
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+p{
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.weather-icon{
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+.weather-display {
+    animation: fadeIn 1s ease-in-out;
+}
