@@ -9,6 +9,8 @@ class WeatherDisplay extends Component{
             temperature: '',
             weatherCondition: '',
             location: '',
+            loading: true,
+            error: null,
         };
     }
 
@@ -25,15 +27,35 @@ class WeatherDisplay extends Component{
                                 temperature: data.main.temp,
                                 weatherCondition : data.weather[0].main,
                                 location: data.name,
+                                loading: false,
+                            });
+                        } else{
+                            this.setState({
+                                loading: false,
+                                error:'Unable to fetch the Weather Data',
                             });
                         }
                     },
-                    (error)=>console.error('Error getting location:',error)
+                    (error)=>{
+                        this.setState({
+                            loading: false,
+                            error:'Error getting location',
+                        });
+                        console.error('Error getting location:',error)
+                    }
                 );
             } else {
+                this.setState({
+                    loading:false,
+                    error:'Geolocation is not supported by this browser.',
+                });
                 console.log("Geolocation is not supported by your browser");
             }
         } catch(error){
+            this.setState({
+                loading: false,
+                error:'Error fetching weather data.',
+            });
             console.error('Error fetching weather data:',error);
         }
     }
