@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import getWeatherData from "../services/weatherService";
 import {WiDaySunny, WiRain} from 'react-icons/wi';
+import { WiStrongWind, WiHumidity } from 'react-icons/wi';
 
 class WeatherDisplay extends Component{
     constructor (props){
@@ -61,7 +62,7 @@ class WeatherDisplay extends Component{
     }
     
     render() {
-    const { temperature, weatherCondition, location, loading, error } = this.state;
+    const { temperature,  minTemperature, maxTemperature, windSpeed, humidity, weatherCondition, weatherDescription, location, loading, error } = this.state;
 
     if(loading){
         return <div className="loading-message">Loading...</div>
@@ -82,6 +83,10 @@ class WeatherDisplay extends Component{
         )}
         
         <p> {temperature} °C </p>
+        <p> {weatherDescription} </p>
+        <p> <WiStrongWind className="weather-icon" /> {windSpeed} m/s </p>
+        <p> <WiHumidity className="weather-icon" /> {humidity}% </p>
+        <p> Min: {minTemperature} °C - Max: {maxTemperature} °C </p>
         <p> {weatherCondition} </p>
         </div>
     );

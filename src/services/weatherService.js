@@ -9,8 +9,13 @@ const getWeatherData = async(latitude, longitude) => {
             throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        return data;
-        } catch (error){
+        const minTemperature = data.main.temp_min;
+        const maxTemperature = data.main.temp_max;
+        const weatherDescription = data.weather[0].description;
+        const windSpeed = data.wind.speed;
+        const humidity = data.main.humidity;
+        return { ...data, minTemperature, maxTemperature, weatherDescription, windSpeed, humidity };
+        } catch (error) {
             console.error('Error fetching weather data:',error);
             return null;
     }
