@@ -1,7 +1,7 @@
 const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
 const getWeatherData = async(latitude, longitude) => {
-    const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric';
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
 
     try{
         const response = await fetch(apiUrl);
