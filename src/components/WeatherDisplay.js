@@ -61,7 +61,15 @@ class WeatherDisplay extends Component{
     }
     
     render() {
-    const { temperature, weatherCondition, location } = this.state;
+    const { temperature, weatherCondition, location, loading, error } = this.state;
+
+    if(loading){
+        return <div>Loading...</div>
+    }
+
+    if(error){
+        return <div> Error: {error} </div>
+    }
 
     return(
         <div className="weather-display">
