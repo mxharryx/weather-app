@@ -64,11 +64,11 @@ class WeatherDisplay extends Component{
     const { temperature, weatherCondition, location, loading, error } = this.state;
 
     if(loading){
-        return <div>Loading...</div>
+        return <div className="loading-message">Loading...</div>
     }
 
     if(error){
-        return <div> Error: {error} </div>
+        return <div className="error-message"> Error: {error} </div>
     }
 
     return(
@@ -76,9 +76,9 @@ class WeatherDisplay extends Component{
         <h2> {location} </h2>
         
         {weatherCondition === 'Clear' ? (
-            <WiDaySunny className="weather-icon"/>
+            <WiDaySunny className="weather-icon weather-icon-sunny"/>
         ):(
-            <WiRain className="weather-icon"/>
+            <WiRain className="weather-icon weather-icon-rain"/>
         )}
         
         <p> {temperature} °C </p>

@@ -22,6 +22,29 @@ p{
     margin-bottom: 1rem;
 }
 
+.weather-icon-sunny {
+    color: #ffc107; /* Yellow color for sunny weather */
+}
+
+
+.weather-icon-rain {
+    color: #1976d2; /* Blue color for rainy weather */
+}
+
+/*Loading message*/
+.loading-message {
+    font-size: 1.2rem;
+    margin:1rem;
+}
+
+/*Error Message */
+.error-message{
+    font-size: 1.2rem;
+    color:#ff0537 ;
+    margin: 1rem;
+}
+
+
 @keyframes fadeIn{
     from{
         opacity: 0;
